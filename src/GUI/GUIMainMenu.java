@@ -6,8 +6,6 @@ import javax.swing.*;
 
 public class GUIMainMenu extends GUIGeneral
 {
-    //τίτλος βασικού παραθύρου
-    public static final String textMainFrame = "eWeather";
 
     //ετικέτες πλήκτρων
     public static final String textBtnWeatherNow = "Ο Καιρός τώρα";
@@ -15,26 +13,26 @@ public class GUIMainMenu extends GUIGeneral
     public static final String textBtnStats = "Στατιστικά";
     public static final String textBtnExit = "Έξοδος";
     
-    public GUIMainMenu()
+    public GUIMainMenu(JFrame parentFrame)
     {
-	super(null);
+	super(parentFrame);
+	init();
+    }
+    
+    private void init()
+    {
 	createGUI();
     }
     
+    @Override
     protected void createGUI()
     {
-	JFrame mainFrame = new JFrame();
-	mainFrame.setSize(800, 500);
-	mainFrame.setTitle(textMainFrame);
-	mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	
 	createButton(textBtnWeatherNow);
 	createButton(textBtnForecastWeather);
 	createButton(textBtnStats);
 	createButton(textBtnExit);
 
-	mainFrame.getContentPane().add(panel);
-	new ViewMainMenu(componentList, mainFrame);
-	mainFrame.setVisible(true);
+	new ViewMainMenu(componentList, _parentFrame);
+	reDrawFrame();
     }
 }

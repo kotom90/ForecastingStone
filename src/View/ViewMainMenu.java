@@ -13,6 +13,11 @@ public class ViewMainMenu extends ViewGeneral
     public ViewMainMenu(ArrayList<JComponent> components, JFrame parentFrame)
     {
 	super(components, parentFrame);
+	init();
+    }
+    
+    private void init()
+    {
 	manageListeners();
     }
     
@@ -76,7 +81,7 @@ public class ViewMainMenu extends ViewGeneral
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-	    JOptionPane.showMessageDialog(null, "Report ziggs mid!");
+	    System.exit(0);
 	}
     }
 }

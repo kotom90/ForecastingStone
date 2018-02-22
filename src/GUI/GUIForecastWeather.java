@@ -1,17 +1,24 @@
 package GUI;
 
+import View.ViewForecastWeather;
+import javax.swing.GroupLayout;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
 public class GUIForecastWeather extends GUIGeneral
 {
-    public static String textBtnForecast24Hours = "Πρόβλεψη Καιρού 1ας ημέρας";
-    public static String textBtnForecast5Days = "Πρόβλεψη Καιρού 5 ημερών";
-    public static String textBtnForecastRefresh = "Ανανέωση Πρόβλεψης Καιρού";
+    public static final String textBtnForecast24Hours = "Πρόβλεψη Καιρού 1ας ημέρας";
+    public static final String textBtnForecast5Days = "Πρόβλεψη Καιρού 5 ημερών";
+    public static final String textBtnForecastRefresh = "Ανανέωση Πρόβλεψης Καιρού";
     
     public GUIForecastWeather(JFrame parentFrame)
     {
 	super(parentFrame);
+	init();
+    }
+    
+    private void init()
+    {
 	createGUI();
     }
     
@@ -23,9 +30,7 @@ public class GUIForecastWeather extends GUIGeneral
 	createButton(textBtnForecastRefresh);
 	createButton(GUIGeneral.textBtnReturn);
 	
-	_parentFrame.getContentPane().removeAll();
-	_parentFrame.getContentPane().add(panel);
-	_parentFrame.validate();
-	
+	new ViewForecastWeather(componentList, _parentFrame);
+	reDrawFrame();
     }
 }
