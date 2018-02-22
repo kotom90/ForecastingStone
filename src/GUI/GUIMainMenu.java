@@ -4,9 +4,12 @@ import View.ViewMainMenu;
 import java.util.ArrayList;
 import javax.swing.*;
 
-public class GUIMainMenu extends JFrame
+public class GUIMainMenu extends GUIGeneral
 {
-    private ArrayList<JComponent> componentList = new ArrayList<JComponent>();
+    //τίτλος βασικού παραθύρου
+    public static final String textMainFrame = "eWeather";
+
+    //ετικέτες πλήκτρων
     public static final String textBtnWeatherNow = "Ο Καιρός τώρα";
     public static final String textBtnForecastWeather = "Πρόβλεψη Καιρού";
     public static final String textBtnStats = "Στατιστικά";
@@ -14,26 +17,24 @@ public class GUIMainMenu extends JFrame
     
     public GUIMainMenu()
     {
-	this.setSize(500, 300);
-	this.setTitle("De windoov");
-	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	super(null);
+	createGUI();
+    }
+    
+    protected void createGUI()
+    {
+	JFrame mainFrame = new JFrame();
+	mainFrame.setSize(800, 500);
+	mainFrame.setTitle(textMainFrame);
+	mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
+	createButton(textBtnWeatherNow);
+	createButton(textBtnForecastWeather);
+	createButton(textBtnStats);
+	createButton(textBtnExit);
 
-	JPanel panel = new JPanel();
-	
-	componentList.add(new JButton(textBtnWeatherNow));
-	componentList.add(new JButton(textBtnForecastWeather));
-	componentList.add(new JButton(textBtnStats));
-	componentList.add(new JButton(textBtnExit));
-	
-	for(JComponent comp:componentList)
-	{
-	    panel.add(comp);
-	}
-
-	getContentPane().add(panel);
-	
-	new ViewMainMenu(componentList);
-	
-	this.setVisible(true);
+	mainFrame.getContentPane().add(panel);
+	new ViewMainMenu(componentList, mainFrame);
+	mainFrame.setVisible(true);
     }
 }

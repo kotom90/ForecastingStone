@@ -2,15 +2,18 @@ package View;
 
 import java.util.ArrayList;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 
 
 public abstract class ViewGeneral 
 {
-    public ArrayList<JComponent> _components;
+    protected ArrayList<JComponent> _components;
+    protected JFrame _parentFrame;
     
-    public ViewGeneral(ArrayList<JComponent> components)
+    public ViewGeneral(ArrayList<JComponent> components, JFrame parentFrame)
     {
 	_components = components;
+	_parentFrame = parentFrame;
     }
     
     protected void manageListeners()	//συνάρτηση η οποία διαχειρίζεται τους ακροατές του κάθε component

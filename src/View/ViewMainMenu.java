@@ -1,5 +1,6 @@
 package View;
 
+import GUI.GUIForecastWeather;
 import GUI.GUIMainMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,9 +10,9 @@ import javax.swing.*;
 
 public class ViewMainMenu extends ViewGeneral
 {
-    public ViewMainMenu(ArrayList<JComponent> components)
+    public ViewMainMenu(ArrayList<JComponent> components, JFrame parentFrame)
     {
-	super(components);
+	super(components, parentFrame);
 	manageListeners();
     }
     
@@ -21,7 +22,7 @@ public class ViewMainMenu extends ViewGeneral
 	if (comp instanceof JButton)
 	{
 	    JButton btn = (JButton)comp;
-	    switch (btn.getText())
+	    switch (btn.getName())
 	    {
 		case GUIMainMenu.textBtnWeatherNow:
 		    btn.addActionListener(new ListenerBtnWeatherNow());
@@ -65,7 +66,7 @@ public class ViewMainMenu extends ViewGeneral
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-	    JOptionPane.showMessageDialog(null, "AFK");
+	    new GUIForecastWeather(_parentFrame);
 	}
     }
     
