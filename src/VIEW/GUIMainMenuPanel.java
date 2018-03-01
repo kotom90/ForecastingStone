@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package VIEW;
 
 import javax.swing.JFrame;
 
@@ -104,7 +104,7 @@ public class GUIMainMenuPanel extends javax.swing.JPanel
 
     private void btnStatsActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnStatsActionPerformed
     {//GEN-HEADEREND:event_btnStatsActionPerformed
-        new GUIForecastWeatherPanel(_parentFrame);
+        
     }//GEN-LAST:event_btnStatsActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnExitActionPerformed
@@ -119,7 +119,7 @@ public class GUIMainMenuPanel extends javax.swing.JPanel
 
     private void btnForecastWeatherActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnForecastWeatherActionPerformed
     {//GEN-HEADEREND:event_btnForecastWeatherActionPerformed
-        // TODO add your handling code here:
+        new GUIForecastWeatherPanel(_parentFrame);
     }//GEN-LAST:event_btnForecastWeatherActionPerformed
 
 
