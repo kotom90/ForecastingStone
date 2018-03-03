@@ -35,9 +35,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Forecasts.findByDt", query = "SELECT f FROM Forecasts f WHERE f.dt = :dt")
     , @NamedQuery(name = "Forecasts.findByTemperature", query = "SELECT f FROM Forecasts f WHERE f.temperature = :temperature")
     , @NamedQuery(name = "Forecasts.findByDescription", query = "SELECT f FROM Forecasts f WHERE f.description = :description")
-    , @NamedQuery(name = "Forecasts.findByClouds", query = "SELECT f FROM Forecasts f WHERE f.clouds = :clouds")
-    , @NamedQuery(name = "Forecasts.findByRain", query = "SELECT f FROM Forecasts f WHERE f.rain = :rain")
-    , @NamedQuery(name = "Forecasts.findBySnow", query = "SELECT f FROM Forecasts f WHERE f.snow = :snow")
+    , @NamedQuery(name = "Forecasts.findByCloudperc", query = "SELECT f FROM Forecasts f WHERE f.cloudperc = :cloudperc")
+    , @NamedQuery(name = "Forecasts.findByRainheight", query = "SELECT f FROM Forecasts f WHERE f.rainheight = :rainheight")
+    , @NamedQuery(name = "Forecasts.findBySnowheight", query = "SELECT f FROM Forecasts f WHERE f.snowheight = :snowheight")
     , @NamedQuery(name = "Forecasts.findByWindspeed", query = "SELECT f FROM Forecasts f WHERE f.windspeed = :windspeed")})
 public class Forecasts implements Serializable {
 
@@ -59,12 +59,12 @@ public class Forecasts implements Serializable {
     private Double temperature;
     @Column(name = "DESCRIPTION")
     private String description;
-    @Column(name = "CLOUDS")
-    private Double clouds;
-    @Column(name = "RAIN")
-    private Double rain;
-    @Column(name = "SNOW")
-    private Double snow;
+    @Column(name = "CLOUDPERC")
+    private Double cloudperc;
+    @Column(name = "RAINHEIGHT")
+    private Double rainheight;
+    @Column(name = "SNOWHEIGHT")
+    private Double snowheight;
     @Column(name = "WINDSPEED")
     private Double windspeed;
 
@@ -123,28 +123,28 @@ public class Forecasts implements Serializable {
         this.description = description;
     }
 
-    public Double getClouds() {
-        return clouds;
+    public Double getCloudperc() {
+        return cloudperc;
     }
 
-    public void setClouds(Double clouds) {
-        this.clouds = clouds;
+    public void setCloudperc(Double cloudperc) {
+        this.cloudperc = cloudperc;
     }
 
-    public Double getRain() {
-        return rain;
+    public Double getRainheight() {
+        return rainheight;
     }
 
-    public void setRain(Double rain) {
-        this.rain = rain;
+    public void setRainheight(Double rainheight) {
+        this.rainheight = rainheight;
     }
 
-    public Double getSnow() {
-        return snow;
+    public Double getSnowheight() {
+        return snowheight;
     }
 
-    public void setSnow(Double snow) {
-        this.snow = snow;
+    public void setSnowheight(Double snowheight) {
+        this.snowheight = snowheight;
     }
 
     public Double getWindspeed() {
