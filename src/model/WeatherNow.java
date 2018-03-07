@@ -27,26 +27,26 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Lefteris
  */
 @Entity
-@Table(name = "FORECASTS")
+@Table(name = "WEATHER_NOW")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Forecasts.findAll", query = "SELECT f FROM Forecasts f")
-    , @NamedQuery(name = "Forecasts.findByForecastid", query = "SELECT f FROM Forecasts f WHERE f.forecastid = :forecastid")
-    , @NamedQuery(name = "Forecasts.findByMaintemp", query = "SELECT f FROM Forecasts f WHERE f.maintemp = :maintemp")
-    , @NamedQuery(name = "Forecasts.findByCloudsall", query = "SELECT f FROM Forecasts f WHERE f.cloudsall = :cloudsall")
-    , @NamedQuery(name = "Forecasts.findByWindspeed", query = "SELECT f FROM Forecasts f WHERE f.windspeed = :windspeed")
-    , @NamedQuery(name = "Forecasts.findByDt", query = "SELECT f FROM Forecasts f WHERE f.dt = :dt")
-    , @NamedQuery(name = "Forecasts.findByRain", query = "SELECT f FROM Forecasts f WHERE f.rain = :rain")
-    , @NamedQuery(name = "Forecasts.findBySnow", query = "SELECT f FROM Forecasts f WHERE f.snow = :snow")
-    , @NamedQuery(name = "Forecasts.findByIcon", query = "SELECT f FROM Forecasts f WHERE f.icon = :icon")})
-public class Forecasts implements Serializable {
+    @NamedQuery(name = "WeatherNow.findAll", query = "SELECT w FROM WeatherNow w")
+    , @NamedQuery(name = "WeatherNow.findByWeathernowid", query = "SELECT w FROM WeatherNow w WHERE w.weathernowid = :weathernowid")
+    , @NamedQuery(name = "WeatherNow.findByMaintemp", query = "SELECT w FROM WeatherNow w WHERE w.maintemp = :maintemp")
+    , @NamedQuery(name = "WeatherNow.findByCloudsall", query = "SELECT w FROM WeatherNow w WHERE w.cloudsall = :cloudsall")
+    , @NamedQuery(name = "WeatherNow.findByWindspeed", query = "SELECT w FROM WeatherNow w WHERE w.windspeed = :windspeed")
+    , @NamedQuery(name = "WeatherNow.findByDt", query = "SELECT w FROM WeatherNow w WHERE w.dt = :dt")
+    , @NamedQuery(name = "WeatherNow.findByRain", query = "SELECT w FROM WeatherNow w WHERE w.rain = :rain")
+    , @NamedQuery(name = "WeatherNow.findBySnow", query = "SELECT w FROM WeatherNow w WHERE w.snow = :snow")
+    , @NamedQuery(name = "WeatherNow.findByIcon", query = "SELECT w FROM WeatherNow w WHERE w.icon = :icon")})
+public class WeatherNow implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "FORECASTID")
-    private Long forecastid;
+    @Column(name = "WEATHERNOWID")
+    private Long weathernowid;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "MAINTEMP")
     private Double maintemp;
@@ -70,19 +70,19 @@ public class Forecasts implements Serializable {
     @ManyToOne
     private WeatherDescs weatherDescId;
 
-    public Forecasts() {
+    public WeatherNow() {
     }
 
-    public Forecasts(Long forecastid) {
-        this.forecastid = forecastid;
+    public WeatherNow(Long weathernowid) {
+        this.weathernowid = weathernowid;
     }
 
-    public Long getForecastid() {
-        return forecastid;
+    public Long getWeathernowid() {
+        return weathernowid;
     }
 
-    public void setForecastid(Long forecastid) {
-        this.forecastid = forecastid;
+    public void setWeathernowid(Long weathernowid) {
+        this.weathernowid = weathernowid;
     }
 
     public Double getMaintemp() {
@@ -160,18 +160,18 @@ public class Forecasts implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (forecastid != null ? forecastid.hashCode() : 0);
+        hash += (weathernowid != null ? weathernowid.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Forecasts)) {
+        if (!(object instanceof WeatherNow)) {
             return false;
         }
-        Forecasts other = (Forecasts) object;
-        if ((this.forecastid == null && other.forecastid != null) || (this.forecastid != null && !this.forecastid.equals(other.forecastid))) {
+        WeatherNow other = (WeatherNow) object;
+        if ((this.weathernowid == null && other.weathernowid != null) || (this.weathernowid != null && !this.weathernowid.equals(other.weathernowid))) {
             return false;
         }
         return true;
@@ -179,7 +179,7 @@ public class Forecasts implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Forecasts[ forecastid=" + forecastid + " ]";
+        return "model.WeatherNow[ weathernowid=" + weathernowid + " ]";
     }
     
 }
